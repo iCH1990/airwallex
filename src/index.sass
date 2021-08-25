@@ -1,0 +1,44 @@
+$font-color-black: #333
+
+@mixin base-box($position)
+  position: relative
+  flex-shrink: 1
+  width: 100%
+  font-weight: bold
+
+*
+  margin: 0
+  padding: 0
+  color: $font-color-black
+  font-family: serif
+
+.container
+  width: 100vw
+  height: 100vh
+  display: flex
+  flex-direction: column
+  overflow: hidden
+
+  .header
+    @include base-box(bottom)
+    height: 8rem
+    font-size: 2.6rem
+    color: #FFF
+    padding-left: 3.7rem
+    line-height: 8rem
+    background: rgba(33,37,41, 0.9)
+
+  .content
+    flex: 1
+    width: 100%
+    overflow: auto
+
+  .footer
+    @include base-box(top)
+    font-size: 1.3rem
+    text-align: center
+    padding: 2.7rem 0
+    background: rgba(248,249,250, 0.9)
+
+    .text
+      line-height: 2.3rem
