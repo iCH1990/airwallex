@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
 import './Homepage.sass';
 import queryInviteInfo from '../services/queryInviteInfo';
+import Modal from '../components/Modal';
 
 function Homepage() {
   const [loading, setLoading] = useState(false);
@@ -42,17 +42,16 @@ function Homepage() {
         <p className="tips">
           Be the first to know when we launch.
         </p>
-        <Button
+        <button
           className="button"
-          type="primary"
-          loading={loading}
+          type="button"
           onClick={handleClick}
         >
           Request an invite
-        </Button>
+        </button>
       </div>
       <Modal
-        title="Basic Modal"
+        name="Basic Modal"
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
