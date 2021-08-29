@@ -1,32 +1,16 @@
 import React, { useState } from 'react';
 import './Homepage.sass';
-import queryInviteInfo from '../services/queryInviteInfo';
 import Modal from '../components/Modal';
+import Invite from '../components/Invite';
 
 function Homepage() {
-  const [loading, setLoading] = useState(false);
-
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleClick = async () => {
     setIsModalVisible(true);
   };
 
-  const handleSubmit = async () => {
-    setLoading(true);
-    await queryInviteInfo({
-      email: 'test',
-      name: '',
-    }).catch(() => {});
-    setLoading(false);
-  };
-
-  const handleOk = async () => {
-    setIsModalVisible(false);
-    await handleSubmit();
-  };
-
-  const handleCancel = () => {
+  const handleClose = async () => {
     setIsModalVisible(false);
   };
 
@@ -51,14 +35,10 @@ function Homepage() {
         </button>
       </div>
       <Modal
-        name="Basic Modal"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        show={isModalVisible}
+        onClose={handleClose}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <Invite onSuccess={handleClose} />
       </Modal>
     </>
   );

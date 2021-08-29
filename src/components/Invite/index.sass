@@ -1,0 +1,50 @@
+@import '../../index'
+
+.invite
+  width: 30rem
+  padding: 3rem
+  background: #fff
+  border-radius: 3rem
+  color: #333
+
+  &-title
+    font-size: 2rem
+    font-weight: bold
+    text-align: center
+    margin-bottom: 3rem
+
+  &-tips
+    font-size: 1.8rem
+
+  &-form
+    display: flex
+    flex-direction: column
+
+    &-input
+      height: 3.5rem
+      margin-bottom: 1rem
+
+      &-item
+        font-size: 1.8rem
+
+      &:last-child
+        margin-bottom: 0
+
+      &:focus
+        border-radius: 0.5rem
+
+  &-error
+    margin-top: 1rem
+    color: $color-error
+    font-size: 1.4rem
+
+  &-button
+    width: 100%
+    height: 3.5rem
+    margin-top: 3rem
+    font-size: 2rem
+    font-weight: bold
+    color: $color-white
+    border-radius: 1rem
+    background: $color-blue
+    border: none

@@ -1,4 +1,7 @@
-$font-color-black: #333
+$color-black: #333
+$color-error: #F5232D
+$color-blue: #1890FF
+$color-white: #FFF
 
 @mixin base-box($position)
   position: relative
@@ -9,8 +12,9 @@ $font-color-black: #333
 *
   margin: 0
   padding: 0
-  color: $font-color-black
+  color: $color-black
   font-family: serif
+  overflow: hidden
 
 .container
   width: 100vw
@@ -23,7 +27,7 @@ $font-color-black: #333
     @include base-box(bottom)
     height: 8rem
     font-size: 2.6rem
-    color: #FFF
+    color: $color-white
     padding-left: 3.7rem
     line-height: 8rem
     background: rgba(33,37,41, 0.9)
