@@ -33,6 +33,10 @@ function Invite(props: {
   };
 
   const handleClick = async () => {
+    if (status === 'loading') {
+      return;
+    }
+
     if (status === 'success') {
       onSuccess();
       return;
@@ -120,7 +124,7 @@ function Invite(props: {
         )
       }
       <button
-        className="invite-button"
+        className={`invite-button invite-button-${status}`}
         type="submit"
         disabled={status === 'loading'}
         onClick={handleClick}
