@@ -63,7 +63,7 @@ function Invite(props: {
       name: userInfo.fullName,
       email: userInfo.email,
     }).catch((e) => {
-      setError(e);
+      setError(e.response?.data.errorMessage || 'Server error: Please try again');
       setStatus('failed');
     });
 
@@ -93,7 +93,7 @@ function Invite(props: {
             <div className="invite-form">
               <Input
                 className="invite-form-input"
-                inputClassName="invite-form-input-item"
+                inputClassName="invite-form-input-item __fullName"
                 name="fullName"
                 value={userInfo.fullName}
                 placeholder="Full name"
@@ -101,7 +101,7 @@ function Invite(props: {
               />
               <Input
                 className="invite-form-input"
-                inputClassName="invite-form-input-item"
+                inputClassName="invite-form-input-item __email"
                 name="email"
                 value={userInfo.email}
                 placeholder="Email"
@@ -109,7 +109,7 @@ function Invite(props: {
               />
               <Input
                 className="invite-form-input"
-                inputClassName="invite-form-input-item"
+                inputClassName="invite-form-input-item __confirmEmail"
                 name="confirmEmail"
                 value={userInfo.confirmEmail}
                 placeholder="Confirm email"
