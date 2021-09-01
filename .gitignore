@@ -8,9 +8,6 @@
 # testing
 /coverage
 
-# production
-/public
-
 # misc
 .idea
 .DS_Store

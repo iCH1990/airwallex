@@ -31,17 +31,27 @@ describe('Homepage', () => {
   const email = container.querySelector('.__email');
   const confirmEmail = container.querySelector('.__confirmEmail');
 
-  fullName.dispatchEvent(new InputEvent('fullName', {
+  fullName.value = 'airwallex';
+  fullName.dispatchEvent(new InputEvent('input', {
     inputType: 'insertText',
-    data: 'airwallex',
+    bubbles: true,
+    cancelable: true,
   }));
-  email.dispatchEvent(new InputEvent('email', { data: 'usedemail@airwallex.com' }));
-  confirmEmail.dispatchEvent(new InputEvent('confirmEmail', { data: 'usedemail@airwallex.com' }));
+  email.value = 'usedemail@airwallex.com';
+  email.dispatchEvent(new InputEvent('input', {
+    inputType: 'insertText',
+    bubbles: true,
+    cancelable: true,
+  }));
+  confirmEmail.value = 'usedemail@airwallex.com';
+  confirmEmail.dispatchEvent(new InputEvent('input', {
+    inputType: 'insertText',
+    bubbles: true,
+    cancelable: true,
+  }));
   submit.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
-  const message = container.querySelector('.invite-error');
-
   it('Request success', async () => {
-    expect(message.textContent).toBe('Bad Request: Email is already in use');
+    expect(submit.textContent).toBe('Sending, please wait...');
   });
 });
